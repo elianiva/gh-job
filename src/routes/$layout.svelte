@@ -2,6 +2,7 @@
 .wrapper {
   max-width: 1080px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .top_bg {
