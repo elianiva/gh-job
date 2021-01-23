@@ -3,7 +3,7 @@
   width: 100%;
   border-radius: 0.5rem;
   background-color: #ffffff;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.025);
   display: grid;
   grid-template-columns: 1.25fr 1fr 1fr;
@@ -13,15 +13,17 @@
 .search__company,
 .search__location,
 .search__submit {
-  padding: 0.75rem 1rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 60%;
 }
 
 .search__company,
 .search__location {
   border-right: 1px #efefef solid;
+  margin-left: 1rem;
 }
 
 :global(.search__icon) {
@@ -38,12 +40,23 @@
 }
 
 .search__company-input::placeholder {
-  color: #b0b0b0;
+  color: #8e8eae;
 }
 
 .submit__fulltime-checkbox {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color ease-out 0.05s;
+  color: #ffffff;
+}
+
+.checkbox__icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-items: center;
 }
 
 .submit__fulltime-label {
@@ -82,13 +95,28 @@
     />
   </div>
   <div class="search__submit">
-    <input class="submit__fulltime-checkbox" type="checkbox" />
+    <div
+      class="submit__fulltime-checkbox"
+      style="background-color: {isChecked ? '#5964e0' : '#e8e8ea'};"
+      on:click={() => (isChecked = !isChecked)}
+    >
+      {#if isChecked}
+        <!--this needs to be wrapped inside a div so we can apply the transition-->
+        <div class="checkbox__icon" transition:fade={{ duration: 0.05 }}>
+          <Checkmark />
+        </div>
+      {/if}
+    </div>
     <span class="submit__fulltime-label">Full Time Only</span>
     <button class="submit__button">Search</button>
   </div>
 </div>
 
 <script>
+import { fade } from "svelte/transition"
 import Search from "./icons/Search.svelte"
 import Point from "./icons/Point.svelte"
+import Checkmark from "./icons/Checkmark.svelte"
+
+let isChecked = false
 </script>
