@@ -9,26 +9,31 @@
 
 <Search />
 <div class="cards">
-  {#each data as { created_at, title, type, company, location, company_logo, id }}
-    <Card {created_at} {title} {type} {company} {location} icon={company_logo} {id} />
+  {#each $jobs as { created_at, title, type, company, location, company_logo, id }}
+    <Card
+      {created_at}
+      {title}
+      {type}
+      {company}
+      {location}
+      icon={company_logo}
+      {id}
+    />
   {/each}
 </div>
 
 <script context="module" lang="ts">
+import { jobs } from "#stores/jobs"
+
 export const load = async ({ fetch }) => {
-  const req = await fetch("/jobs.json?kind=positions&keyword=node&page=1")
+  const req = await fetch("/jobs.json?kind=all&search=node&page=1")
   const res = await req.json()
-  return {
-    props: {
-      data: res,
-    },
-  }
+
+  jobs.set(res)
 }
 </script>
 
 <script lang="ts">
 import Search from "#components/SearchBar.svelte"
 import Card from "#components/Card.svelte"
-
-export let data: any
 </script>
