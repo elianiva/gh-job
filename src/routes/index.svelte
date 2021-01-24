@@ -27,8 +27,8 @@ export const load = async ({ fetch }) => {
 </script>
 
 <script lang="ts">
-import Search from "../components/SearchBar.svelte"
-import Card from "../components/Card.svelte"
+import Search from "#components/SearchBar.svelte"
+import Card from "#components/Card.svelte"
 
 export let data: any
 </script>

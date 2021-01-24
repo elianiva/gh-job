@@ -18,7 +18,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "$components/*": ["./src/components/*"]
+      "#components/*": ["./src/components/*"],
+      "#helpers/*": ["./src/helpers/*"],
+      "#icons/*": ["./src/icons/*"],
+      "#stores/*": ["./src/stores/*"],
     }
   },
   "include": ["src/**/*"],

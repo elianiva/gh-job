@@ -113,9 +113,9 @@
 
 <script>
 import { fade } from "svelte/transition"
-import Search from "./icons/Search.svelte"
-import Point from "./icons/Point.svelte"
-import Checkmark from "./icons/Checkmark.svelte"
+import Search from "#icons/Search.svelte"
+import Point from "#icons/Point.svelte"
+import Checkmark from "#icons/Checkmark.svelte"
 
 let isChecked = false
 </script>

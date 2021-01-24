@@ -60,8 +60,8 @@
 </nav>
 
 <script>
-import Sun from "./icons/Sun.svelte"
-import Moon from "./icons/Moon.svelte"
+import Sun from "#icons/Sun.svelte"
+import Moon from "#icons/Moon.svelte"
 
 let isDarkMode = false
 
