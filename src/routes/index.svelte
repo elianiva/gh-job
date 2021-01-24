@@ -9,12 +9,22 @@
 .loading {
   margin-top: 8rem;
 }
+
+.error {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #171a1f;
+}
 </style>
 
 <Search />
 {#if $jobs.length < 1}
   <div class="loading">
-    <LoadingBar />
+    {#if $isFound}
+      <LoadingBar />
+    {:else}
+      <h1 class="error">Not found. Try with another keyword!</h1>
+    {/if}
   </div>
 {:else}
   <div class="cards">
@@ -47,4 +57,6 @@ export const load = async ({ fetch }) => {
 import Search from "#components/SearchBar.svelte"
 import Card from "#components/Card.svelte"
 import LoadingBar from "#components/Loading.svelte"
+
+import { isFound } from "#stores/found_status"
 </script>

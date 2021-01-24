@@ -128,6 +128,7 @@
 import { fade } from "svelte/transition"
 import { filter } from "#stores/filter"
 import { jobs } from "#stores/jobs"
+import { isFound } from "#stores/found_status"
 import Search from "#icons/Search.svelte"
 import Point from "#icons/Point.svelte"
 import Checkmark from "#icons/Checkmark.svelte"
@@ -137,17 +138,28 @@ let search = ""
 let location = ""
 let submit
 
-filter.set({
+$: filter.set({
   search,
   location,
   isFullTime: isChecked,
 })
 
 const getFilteredResult = async () => {
-  const req = await fetch(`/jobs.json?kind=all&search=${search}&page=1`)
+  // we need to reset the state from previous search
+  jobs.set([])
+  isFound.set(true)
+
+  const { search, location, isFullTime } = $filter
+  const req = await fetch(
+    // we want to restart from page 1 if we fetch the data from the search bar
+    `/jobs.json?kind=all&search=${search}&location=${location}&full_time=${isFullTime}&page=1`
+  )
   const res = await req.json()
 
-  console.log(res)
+  if (res.length < 1) {
+    isFound.set(false)
+    return
+  }
 
   jobs.set(res)
 }
