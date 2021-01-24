@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .card__icon {
@@ -13,7 +13,8 @@
   width: 3rem;
   height: 3rem;
   object-fit: contain;
-  background-color: #5964e0;
+  background-color: #ffffff;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.075);
   border-radius: 0.75rem;
 }
 
