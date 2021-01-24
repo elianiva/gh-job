@@ -67,7 +67,7 @@
 </style>
 
 <div class="card">
-  <img class="card__icon" src={icon} alt="" loading="lazy" />
+  <img class="card__icon" src={company_logo} alt="" loading="lazy" />
   <div class="card__detail">
     <div class="detail__top">
       <span class="detail__date">{relativeDateString}</span>
@@ -91,7 +91,7 @@ export let type: string
 export let company: string
 export let location: string
 export let title: string
-export let icon: string
+export let company_logo: string
 
 const relativeDate = toRelativeDate(created_at)
 const relativeDateString =

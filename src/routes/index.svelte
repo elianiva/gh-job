@@ -16,7 +16,7 @@
       {type}
       {company}
       {location}
-      icon={company_logo}
+      {company_logo}
       {id}
     />
   {/each}
