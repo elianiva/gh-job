@@ -73,6 +73,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit__button:hover {
+  filter: brightness(1.1);
 }
 </style>
 
@@ -83,6 +88,7 @@
       class="search__company-input"
       type="text"
       placeholder="Filter by title, companies, expertise..."
+      on:keydown={e => e.key === "Enter" && submit.click()}
       on:input={e => (search = e.target.value)}
     />
   </div>
@@ -92,6 +98,7 @@
       class="search__company-input"
       type="text"
       placeholder="Filter by location..."
+      on:keydown={e => e.key === "Enter" && submit.click()}
       on:input={e => (location = e.target.value)}
     />
   </div>
@@ -109,7 +116,11 @@
       {/if}
     </div>
     <span class="submit__fulltime-label">Full Time Only</span>
-    <button class="submit__button" on:click={getFilteredResult}>Search</button>
+    <button
+      class="submit__button"
+      on:click={getFilteredResult}
+      bind:this={submit}>Search</button
+    >
   </div>
 </div>
 
@@ -124,6 +135,7 @@ import Checkmark from "#icons/Checkmark.svelte"
 let isChecked = false
 let search = ""
 let location = ""
+let submit
 
 filter.set({
   search,
