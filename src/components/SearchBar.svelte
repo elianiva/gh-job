@@ -48,7 +48,6 @@
   height: 1.25rem;
   border-radius: 0.25rem;
   cursor: pointer;
-  transition: background-color ease-out 0.05s;
   color: #ffffff;
 }
 

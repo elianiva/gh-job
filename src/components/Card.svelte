@@ -45,6 +45,11 @@
   display: block;
   font-weight: 600;
   text-decoration: none;
+  transition: color ease-out 0.1s;
+}
+
+.detail__title:hover {
+  color: #5964e0;
 }
 
 .detail__company {
