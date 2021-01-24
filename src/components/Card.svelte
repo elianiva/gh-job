@@ -86,7 +86,7 @@
 import { toRelativeDate } from "#helpers/toRelativeDate"
 
 export let id: string
-export let created_at: Date
+export let created_at: string
 export let type: string
 export let company: string
 export let location: string

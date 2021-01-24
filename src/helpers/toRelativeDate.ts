@@ -1,4 +1,4 @@
-export const toRelativeDate = (date: Date) => {
+export const toRelativeDate = (date: string) => {
   const now = Date.now()
   const created = new Date(date).getTime()
   const relative = created - now
