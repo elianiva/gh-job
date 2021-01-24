@@ -8,10 +8,7 @@
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class="feather feather-check {className}"
-  ><polyline points="20 6 9 17 4 12" /></svg
+  class="feather feather-check"
 >
-
-<script lang="ts">
-export let className: string
-</script>
+  <polyline points="20 6 9 17 4 12" />
+</svg>

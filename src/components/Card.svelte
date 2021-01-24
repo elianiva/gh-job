@@ -67,7 +67,7 @@
 </style>
 
 <div class="card">
-  <img class="card__icon" src={icon} alt="" />
+  <img class="card__icon" src={icon} alt="" loading="lazy" />
   <div class="card__detail">
     <div class="detail__top">
       <span class="detail__date">{relativeDateString}</span>
