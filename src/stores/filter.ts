@@ -1,13 +1,13 @@
 import { writable, Writable } from "svelte/store"
 
 interface Filter {
-  keyword: string
+  search: string
   location: string
   isFullTime: boolean
 }
 
 export const filter: Writable<Filter> = writable<Filter>({
-  keyword: "",
+  search: "",
   location: "",
   isFullTime: false,
 })

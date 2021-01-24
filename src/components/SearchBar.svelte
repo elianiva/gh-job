@@ -83,6 +83,7 @@
       class="search__company-input"
       type="text"
       placeholder="Filter by title, companies, expertise..."
+      on:input={e => (search = e.target.value)}
     />
   </div>
   <div class="search__location">
@@ -91,6 +92,7 @@
       class="search__company-input"
       type="text"
       placeholder="Filter by location..."
+      on:input={e => (location = e.target.value)}
     />
   </div>
   <div class="search__submit">
@@ -107,15 +109,34 @@
       {/if}
     </div>
     <span class="submit__fulltime-label">Full Time Only</span>
-    <button class="submit__button">Search</button>
+    <button class="submit__button" on:click={getFilteredResult}>Search</button>
   </div>
 </div>
 
 <script>
 import { fade } from "svelte/transition"
+import { filter } from "#stores/filter"
+import { jobs } from "#stores/jobs"
 import Search from "#icons/Search.svelte"
 import Point from "#icons/Point.svelte"
 import Checkmark from "#icons/Checkmark.svelte"
 
 let isChecked = false
+let search = ""
+let location = ""
+
+filter.set({
+  search,
+  location,
+  isFullTime: isChecked,
+})
+
+const getFilteredResult = async () => {
+  const req = await fetch(`/jobs.json?kind=all&search=${search}&page=1`)
+  const res = await req.json()
+
+  console.log(res)
+
+  jobs.set(res)
+}
 </script>
