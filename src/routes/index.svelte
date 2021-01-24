@@ -5,22 +5,32 @@
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 1.5rem;
 }
+
+.loading {
+  margin-top: 8rem;
+}
 </style>
 
 <Search />
-<div class="cards">
-  {#each $jobs as { created_at, title, type, company, location, company_logo, id }}
-    <Card
-      {created_at}
-      {title}
-      {type}
-      {company}
-      {location}
-      {company_logo}
-      {id}
-    />
-  {/each}
-</div>
+{#if $jobs.length < 1}
+  <div class="loading">
+    <LoadingBar />
+  </div>
+{:else}
+  <div class="cards">
+    {#each $jobs as { created_at, title, type, company, location, company_logo, id }}
+      <Card
+        {created_at}
+        {title}
+        {type}
+        {company}
+        {location}
+        {company_logo}
+        {id}
+      />
+    {/each}
+  </div>
+{/if}
 
 <script context="module" lang="ts">
 import { jobs } from "#stores/jobs"
@@ -36,4 +46,5 @@ export const load = async ({ fetch }) => {
 <script lang="ts">
 import Search from "#components/SearchBar.svelte"
 import Card from "#components/Card.svelte"
+import LoadingBar from "#components/Loading.svelte"
 </script>
