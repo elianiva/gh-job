@@ -75,7 +75,7 @@
       <span class="detail__type">{type}</span>
     </div>
     <div class="detail__middle">
-      <a href="/{id}" class="detail__title">{title}</a>
+      <a href="/job/{id}" class="detail__title">{title}</a>
       <span class="detail__company">{company}</span>
     </div>
     <span class="detail__location">{location.replace(/\[.*\]/g, "")}</span>
