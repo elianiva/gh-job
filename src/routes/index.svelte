@@ -13,7 +13,7 @@
 .error {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  color: #171a1f;
+  color: #b0b0b0;
 }
 </style>
 
@@ -23,7 +23,7 @@
     {#if $isFound}
       <LoadingBar />
     {:else}
-      <h1 class="error">Not found. Try with another keyword!</h1>
+      <h1 class="error">Not found, Please try with another keyword!</h1>
     {/if}
   </div>
 {:else}
@@ -46,7 +46,7 @@
 import { jobs } from "#stores/jobs"
 
 export const load = async ({ fetch }) => {
-  const req = await fetch("/jobs.json?kind=all&search=node&page=1")
+  const req = await fetch("/jobs.json?kind=all&page=1")
   const res = await req.json()
 
   jobs.set(res)
