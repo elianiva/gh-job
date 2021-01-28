@@ -15,3 +15,5 @@ export interface Job {
 }
 
 export const jobs: Writable<Job[]> = writable([])
+
+export const job: Writable<Job> = writable(null)
