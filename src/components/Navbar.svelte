@@ -7,11 +7,12 @@
   padding: 2rem 0;
 }
 
-.nav__title {
+.nav__title a {
   font-family: "Poppins", sans-serif;
   color: #ffffff;
   font-weight: 600;
   font-size: 2rem;
+  text-decoration: none;
 }
 
 .nav__theme-switch {
@@ -46,7 +47,7 @@
 </style>
 
 <nav class="nav">
-  <h1 class="nav__title">devjobs</h1>
+  <h1 class="nav__title"><a href="/">devjobs</a></h1>
   <div class="nav__theme-switch">
     <Sun className="icon" />
     <div class="nav__switch" on:click={toggleTheme}>
