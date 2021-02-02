@@ -15,6 +15,12 @@
   border-bottom-left-radius: 6rem;
   z-index: -1;
 }
+
+@media only screen and (max-width: 480px) {
+  .top_bg {
+    border-radius: 0;
+  }
+}
 </style>
 
 <div class="top_bg" />
