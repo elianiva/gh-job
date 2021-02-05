@@ -18,6 +18,7 @@
   grid-template-columns: 1fr 2.5fr 1.25fr;
   grid-template-rows: 1fr 1fr;
   overflow: hidden;
+  min-height: 8rem;
 }
 
 .top-bar__logo {
@@ -35,7 +36,7 @@
   grid-row: 1/2;
   align-self: flex-end;
   font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   padding-left: 2rem;
 }
@@ -72,7 +73,7 @@
 .heading__middle {
   color: #121212;
   font-size: 1.5rem;
-  line-height: 3em;
+  margin-bottom: 1rem;
 }
 
 .heading__bottom {
@@ -109,7 +110,7 @@
 <div class="container">
   <div class="top-bar">
     <img class="top-bar__logo" src={$job.company_logo} alt="" />
-    <span class="top-bar__company">{$job.company}</span>
+    <span class="top-bar__company">{$job.company.substr(0, 25)}...</span>
     <span class="top-bar__company_url">
       {$job.company_url
         .replace(/^https?:\/\/(www\.)?/g, "")
