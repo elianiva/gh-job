@@ -110,7 +110,11 @@
 <div class="container">
   <div class="top-bar">
     <img class="top-bar__logo" src={$job.company_logo} alt="" />
-    <span class="top-bar__company">{$job.company.substr(0, 25)}...</span>
+    <span class="top-bar__company">
+      {$job.company.length > 25
+        ? `${$job.company.substr(0, 25)}...`
+        : $job.company}
+    </span>
     <span class="top-bar__company_url">
       {$job.company_url
         .replace(/^https?:\/\/(www\.)?/g, "")
