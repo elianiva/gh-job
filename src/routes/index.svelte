@@ -40,7 +40,7 @@
 }
 </style>
 
-<SEO title="Home" path=""/>
+<SEO title="Home" path="" />
 <Search />
 {#if $jobs.length < 1}
   <div class="loading">
@@ -64,12 +64,12 @@
       />
     {/each}
   </div>
-  {#if isFetching}
-    <p class="loading-text">Loading more data...</p>
-  {:else}
-    <button class="button" on:click={fetchNextPage}>
-      See More
-    </button>
+  {#if $jobs.length >= 50}
+    {#if isFetching}
+      <p class="loading-text">Loading more data...</p>
+    {:else}
+      <button class="button" on:click={fetchNextPage}> See More </button>
+    {/if}
   {/if}
 {/if}
 
@@ -90,7 +90,7 @@ import Search from "#components/SearchBar.svelte"
 import Card from "#components/Card.svelte"
 import Loading from "#components/Loading.svelte"
 import { isFound } from "#stores/found_status"
-import { filter } from "#stores/filter"
+import { filter, currentPage } from "#stores/filter"
 
 let isFetching = false
 
@@ -98,7 +98,7 @@ $: console.log($filter)
 
 const fetchNextPage = async () => {
   isFetching = true
-  const req = await fetch("/jobs.json?kind=all&page=2")
+  const req = await fetch(`/jobs.json?kind=${$filter.search}&page=${$currentPage + 1}`)
   const res = await req.json()
 
   jobs.set([...$jobs, ...res])

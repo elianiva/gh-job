@@ -107,6 +107,7 @@
 }
 </style>
 
+<SEO title={$job.company} path="" />
 <div class="container">
   <div class="top-bar">
     <img class="top-bar__logo" src={$job.company_logo} alt="" />
@@ -153,6 +154,7 @@ export const load = async ({ page, fetch }) => {
 
 <script lang="ts">
 import { toRelativeDate } from "#helpers/toRelativeDate"
+import SEO from "#components/SEO.svelte"
 
 const relativeDate = toRelativeDate($job.created_at)
 const relativeDateString =
