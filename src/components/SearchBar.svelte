@@ -3,7 +3,6 @@
   width: 100%;
   border-radius: 0.5rem;
   background-color: var(--color-alt-bg);
-  margin-top: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.025);
   display: grid;
   grid-template-columns: 1.25fr 1fr 1fr;
@@ -80,6 +79,23 @@
 
 .submit__button:hover {
   filter: brightness(1.1);
+}
+
+@media only screen and (max-width: 720px) {
+  .search {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .search__submit {
+    padding-left: 2rem;
+    gap: 1rem;
+  }
+
+  .search__company,
+  .search__location {
+    border-right: none;
+  }
 }
 </style>
 

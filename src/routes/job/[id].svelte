@@ -13,6 +13,7 @@
 }
 
 .top-bar {
+  position: relative;
   margin-bottom: 2rem;
   display: grid;
   grid-template-columns: 1fr 2.5fr 1.25fr;
@@ -109,6 +110,49 @@
 
 .main :global(h1) {
   color: var(--color-main-text);
+}
+
+@media only screen and (max-width: 720px) {
+  .top-bar {
+    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2rem 2rem 2rem 3rem;
+    padding: 2rem 0;
+    overflow: visible;
+  }
+
+  .top-bar__logo {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    justify-self: center;
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    top: -5rem;
+    position: absolute;
+    background-color: var(--color-alt-bg);
+    border-radius: 50%;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.05);
+  }
+
+  .top-bar__company {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    padding-left: 0;
+  }
+
+  .top-bar__company_url {
+    grid-row: 3/4;
+    grid-column: 1/-1;
+    padding-left: 0;
+  }
+
+  .top-bar__button {
+    grid-row: 4/5;
+    grid-column: 1/-1;
+    justify-self: center;
+    margin-top: 1rem;
+  }
 }
 </style>
 
