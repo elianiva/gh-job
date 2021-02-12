@@ -2,7 +2,7 @@
 .search {
   width: 100%;
   border-radius: 0.5rem;
-  background-color: #ffffff;
+  background-color: var(--color-alt-bg);
   margin-top: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.025);
   display: grid;
@@ -22,12 +22,12 @@
 
 .search__company,
 .search__location {
-  border-right: 1px #efefef solid;
+  border-right: 1px var(--color-main-bg) solid;
   margin-left: 1rem;
 }
 
 :global(.search__icon) {
-  color: #5961e5;
+  color: var(--color-main-accent);
 }
 
 .search__company-input {
@@ -35,12 +35,13 @@
   border: none;
   font-family: "Montserrat", sans-serif;
   width: 100%;
-  color: #131722;
+  color: var(--color-main-text);
+  background-color: var(--color-alt-bg);
   outline: none;
 }
 
 .search__company-input::placeholder {
-  color: #8e8eae;
+  color: var(--color-fade-text);
 }
 
 .submit__fulltime-checkbox {
@@ -48,7 +49,7 @@
   height: 1.25rem;
   border-radius: 0.25rem;
   cursor: pointer;
-  color: #ffffff;
+  color: var(--color-alt-bg);
 }
 
 .checkbox__icon {
@@ -62,10 +63,11 @@
   flex: 1;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
+  color: var(--color-main-text);
 }
 
 .submit__button {
-  background-color: #5964e0;
+  background-color: var(--color-main-accent);
   border: none;
   color: #ffffff;
   padding: 0.75rem 1.5rem;
@@ -105,7 +107,7 @@
   <div class="search__submit">
     <div
       class="submit__fulltime-checkbox"
-      style="background-color: {isChecked ? '#5964e0' : '#e8e8ea'};"
+      style="background-color: {isChecked ? 'var(--color-main-accent)' : 'var(--color-fade-bg)'};"
       on:click={() => (isChecked = !isChecked)}
     >
       {#if isChecked}

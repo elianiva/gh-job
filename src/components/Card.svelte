@@ -13,14 +13,14 @@
   width: 3rem;
   height: 3rem;
   object-fit: contain;
-  background-color: #ffffff;
+  background-color: var(--color-alt-bg);
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.075);
   border-radius: 0.75rem;
 }
 
 .card__detail {
   flex: 1;
-  background-color: #ffffff;
+  background-color: var(--color-alt-bg);
   border-radius: 0.25rem;
   padding: 3rem 1.5rem 1.5rem;
   font-family: "Poppins", sans-serif;
@@ -32,7 +32,7 @@
 }
 
 .detail__top {
-  color: #78818a;
+  color: var(--color-fade-text);
 }
 
 .detail__middle {
@@ -41,7 +41,7 @@
 
 .detail__title {
   font-size: 1.25rem;
-  color: #171a1f;
+  color: var(--color-main-text);
   display: block;
   font-weight: 600;
   text-decoration: none;
@@ -49,18 +49,18 @@
 }
 
 .detail__title:hover {
-  color: #5964e0;
+  color: var(--color-main-accent);
 }
 
 .detail__company {
   font-weight: 300;
   font-size: 0.8rem;
-  color: #78818a;
+  color: var(--color-fade-text);
 }
 
 .detail__location {
   display: block;
-  color: #5964e0;
+  color: var(--color-main-accent);
   font-weight: 600;
   bottom: 0;
 }

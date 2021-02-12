@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   height: 10rem;
-  background-color: #5964e0;
+  background-color: var(--color-main-accent);
   border-bottom-left-radius: 6rem;
   z-index: -1;
 }
@@ -23,6 +23,25 @@
 }
 </style>
 
+<svelte:head>
+  <script>
+  try {
+    // prettier-ignore
+    const { matches: isDarkMode } = window.matchMedia( "(prefers-color-scheme: dark)")
+    let preference
+
+    // prettier-ignore
+    if (localStorage.getItem("theme")) preference = localStorage.getItem("theme")
+      else preference = isDarkMode ? "dark" : "light"
+
+    // prettier-ignore
+    if (preference) document.documentElement.setAttribute("data-theme", preference)
+  } catch (err) {
+    console.log(err)
+  }
+  </script>
+</svelte:head>
+
 <div class="top_bg" />
 <div class="wrapper">
   <Navbar />
@@ -31,4 +50,25 @@
 
 <script>
 import Navbar from "#components/Navbar.svelte"
+import { onMount } from "svelte"
+import { theme } from "#stores/theme"
+
+onMount(() => {
+  const { matches: isDarkTheme } = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  )
+
+  let preference
+
+  // prettier-ignore
+  if (localStorage.getItem("theme")) preference = localStorage.getItem("theme")
+  else preference = isDarkTheme ? "dark" : "light"
+
+  theme.set(preference)
+
+  theme.subscribe(current => {
+    localStorage.setItem("theme", current)
+    document.documentElement.setAttribute("data-theme", current)
+  })
+})
 </script>

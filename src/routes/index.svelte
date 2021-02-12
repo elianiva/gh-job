@@ -13,15 +13,15 @@
 .error {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  color: #b0b0b0;
+  color: var(--color-fade-text);
 }
 
 .button {
   padding: 1rem 2rem;
   border: none;
   margin: 0 auto;
-  color: #ffffff;
-  background-color: #5964e0;
+  color: var(--color-alt-text);
+  background-color: var(--color-main-accent);
   display: block;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -36,7 +36,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
-  color: #555555;
+  color: var(--color-fade-dark-text);
 }
 </style>
 
@@ -94,11 +94,14 @@ import { filter, currentPage } from "#stores/filter"
 
 let isFetching = false
 
-$: console.log($filter)
-
 const fetchNextPage = async () => {
   isFetching = true
-  const req = await fetch(`/jobs.json?kind=${$filter.search}&page=${$currentPage + 1}`)
+  const { search, location, isFullTime } = $filter
+  const req = await fetch(
+    `/jobs.json?kind=all&search=${search}&location=${location}&full_time${isFullTime}&page=${
+      $currentPage + 1
+    }`
+  )
   const res = await req.json()
 
   jobs.set([...$jobs, ...res])

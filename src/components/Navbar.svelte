@@ -63,8 +63,11 @@
 <script>
 import Sun from "#icons/Sun.svelte"
 import Moon from "#icons/Moon.svelte"
+import { theme } from "#stores/theme.ts"
 
-let isDarkMode = false
+$: isDarkMode = $theme == "dark"
 
-const toggleTheme = () => (isDarkMode = !isDarkMode)
+const toggleTheme = () => {
+  theme.update(current => (current === "light" ? "dark" : "light"))
+}
 </script>

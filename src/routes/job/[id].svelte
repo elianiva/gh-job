@@ -7,7 +7,7 @@
 .top-bar,
 .main {
   border-radius: 0.4rem;
-  background-color: #ffffff;
+  background-color: var(--color-alt-bg);
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
   max-width: 100%;
 }
@@ -39,6 +39,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   padding-left: 2rem;
+  color: var(--color-main-text);
 }
 
 .top-bar__company_url {
@@ -47,7 +48,7 @@
   align-self: flex-start;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  color: #555555;
+  color: var(--color-fade-text);
   padding-left: 2rem;
 }
 
@@ -58,10 +59,10 @@
   justify-self: flex-start;
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
-  background-color: #efeffb;
+  background-color: var(--color-fade-bg);
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  color: #5964e0;
+  color: var(--color-main-accent);
   text-decoration: none;
   font-weight: 700;
 }
@@ -70,14 +71,18 @@
   margin-bottom: 2rem;
 }
 
+.heading__top {
+  color: var(--color-fade-text);
+}
+
 .heading__middle {
-  color: #121212;
+  color: var(--color-alt-text);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .heading__bottom {
-  color: #5964e0;
+  color: var(--color-main-accent);
   font-weight: 600;
 }
 
@@ -94,16 +99,16 @@
 
 .main :global(p),
 .main :global(li) {
-  color: #555555;
+  color: var(--color-fade-text);
 }
 
 .main :global(a) {
-  color: #5964e0;
+  color: var(--color-main-accent);
   font-weight: 600;
 }
 
 .main :global(h1) {
-  color: #121212;
+  color: var(--color-main-text);
 }
 </style>
 

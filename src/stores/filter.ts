@@ -13,3 +13,5 @@ export const filter: Writable<Filter> = writable<Filter>({
   isFullTime: false,
   page: 1,
 })
+
+export const currentPage: Writable<number> = writable<number>(1)
