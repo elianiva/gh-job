@@ -23,22 +23,23 @@
 }
 </style>
 
+<!--prettier-ignore-->
 <svelte:head>
   <script>
-  try {
-    // prettier-ignore
-    const { matches: isDarkMode } = window.matchMedia( "(prefers-color-scheme: dark)")
-    let preference
+    try {
+      // prettier-ignore
+      const { matches: isDarkMode } = window.matchMedia( "(prefers-color-scheme: dark)")
+      let preference
 
-    // prettier-ignore
-    if (localStorage.getItem("theme")) preference = localStorage.getItem("theme")
-      else preference = isDarkMode ? "dark" : "light"
+      // prettier-ignore
+      if (localStorage.getItem("theme")) preference = localStorage.getItem("theme")
+        else preference = isDarkMode ? "dark" : "light"
 
-    // prettier-ignore
-    if (preference) document.documentElement.setAttribute("data-theme", preference)
-  } catch (err) {
-    console.log(err)
-  }
+      // prettier-ignore
+      if (preference) document.documentElement.setAttribute("data-theme", preference)
+    } catch (err) {
+      console.log(err)
+    }
   </script>
 </svelte:head>
 

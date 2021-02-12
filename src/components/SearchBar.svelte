@@ -107,7 +107,9 @@
   <div class="search__submit">
     <div
       class="submit__fulltime-checkbox"
-      style="background-color: {isChecked ? 'var(--color-main-accent)' : 'var(--color-fade-bg)'};"
+      style="background-color: {isChecked
+        ? 'var(--color-main-accent)'
+        : 'var(--color-fade-bg)'};"
       on:click={() => (isChecked = !isChecked)}
     >
       {#if isChecked}
