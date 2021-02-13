@@ -186,6 +186,7 @@
     </div>
     <article>
       {@html $job.description}
+      {@html $job.how_to_apply}
     </article>
   </section>
 </div>
