@@ -166,9 +166,9 @@
         : $job.company}
     </span>
     <span class="top-bar__company_url">
-      {$job.company_url
-        .replace(/^https?:\/\/(www\.)?/g, "")
-        .replace(/\/.*$/g, "")}
+      {$job.company_url ? $job.company_url
+        ?.replace(/^https?:\/\/(www\.)?/g, "")
+        ?.replace(/\/.*$/g, "") : ""}
     </span>
     <a class="top-bar__button" href={$job.company_url}>Company Site</a>
   </div>
@@ -181,7 +181,7 @@
       </div>
       <h1 class="heading__middle">{$job.title}</h1>
       <span class="heading__bottom">
-        {$job.location.replace(/\[.*\]/g, "")}
+        {$job.location?.replace(/\[.*\]/g, "")}
       </span>
     </div>
     <article>
