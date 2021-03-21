@@ -74,7 +74,7 @@
 {/if}
 
 <script context="module" lang="ts">
-import { jobs } from "#stores/jobs"
+import { jobs } from "../stores/jobs"
 
 export const load = async ({ fetch }) => {
   const req = await fetch("/jobs.json?kind=all&page=1")
@@ -85,12 +85,12 @@ export const load = async ({ fetch }) => {
 </script>
 
 <script lang="ts">
-import SEO from "#components/SEO.svelte"
-import Search from "#components/SearchBar.svelte"
-import Card from "#components/Card.svelte"
-import Loading from "#components/Loading.svelte"
-import { isFound } from "#stores/found_status"
-import { filter, currentPage } from "#stores/filter"
+import SEO from "../components/SEO.svelte"
+import Search from "../components/SearchBar.svelte"
+import Card from "../components/Card.svelte"
+import Loading from "../components/Loading.svelte"
+import { isFound } from "../stores/found_status"
+import { filter, currentPage } from "../stores/filter"
 
 let isFetching = false
 

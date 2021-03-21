@@ -2,5 +2,5 @@
 import { onMount } from "svelte"
 
 // not sure if this is the correct way
-onMount(() => (window.location = "/"))
+onMount(() => (window.location.href = "/"))
 </script>

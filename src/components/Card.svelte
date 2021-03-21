@@ -83,7 +83,7 @@
 </div>
 
 <script lang="ts">
-import { toRelativeDate } from "#helpers/toRelativeDate"
+import { toRelativeDate } from "../helpers/toRelativeDate"
 
 export let id: string
 export let created_at: string

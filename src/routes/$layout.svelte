@@ -49,21 +49,19 @@
   <slot />
 </div>
 
-<script>
-import Navbar from "#components/Navbar.svelte"
+<script lang="ts">
+import Navbar from "../components/Navbar.svelte"
 import { onMount } from "svelte"
-import { theme } from "#stores/theme"
+import { theme } from "../stores/theme"
 
 onMount(() => {
   const { matches: isDarkTheme } = window.matchMedia(
     "(prefers-color-scheme: dark)"
   )
 
-  let preference
-
-  // prettier-ignore
-  if (localStorage.getItem("theme")) preference = localStorage.getItem("theme")
-  else preference = isDarkTheme ? "dark" : "light"
+  type Theme = "dark" | "light"
+  const localTheme = localStorage.getItem("theme") as Theme
+  let preference = localTheme || isDarkTheme ? "dark" : "light"
 
   theme.set(preference)
 

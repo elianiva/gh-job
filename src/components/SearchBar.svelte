@@ -144,19 +144,19 @@
   </div>
 </div>
 
-<script>
+<script lang="ts">
 import { fade } from "svelte/transition"
-import { filter } from "#stores/filter"
-import { jobs } from "#stores/jobs"
-import { isFound } from "#stores/found_status"
-import Search from "#icons/Search.svelte"
-import Point from "#icons/Point.svelte"
-import Checkmark from "#icons/Checkmark.svelte"
+import { filter } from "../stores/filter"
+import { jobs } from "../stores/jobs"
+import { isFound } from "../stores/found_status"
+import Search from "../icons/Search.svelte"
+import Point from "../icons/Point.svelte"
+import Checkmark from "../icons/Checkmark.svelte"
 
 let isChecked = false
 let search = ""
 let location = ""
-let submit
+let submit: HTMLButtonElement
 
 $: filter.set({
   search,
@@ -176,10 +176,7 @@ const getFilteredResult = async () => {
   )
   const res = await req.json()
 
-  if (res.length < 1) {
-    isFound.set(false)
-    return
-  }
+  if (res.length < 1) return isFound.set(false)
 
   jobs.set(res)
 }

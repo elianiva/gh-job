@@ -192,7 +192,7 @@
 </div>
 
 <script context="module" lang="ts">
-import { job } from "#stores/jobs"
+import { job } from "../../stores/jobs"
 
 export const load = async ({ page, fetch }) => {
   const req = await fetch(`/jobs.json?id=${page.params.id}`)
@@ -203,8 +203,8 @@ export const load = async ({ page, fetch }) => {
 </script>
 
 <script lang="ts">
-import { toRelativeDate } from "#helpers/toRelativeDate"
-import SEO from "#components/SEO.svelte"
+import { toRelativeDate } from "../../helpers/toRelativeDate"
+import SEO from "../../components/SEO.svelte"
 
 const relativeDate = toRelativeDate($job.created_at)
 const relativeDateString =

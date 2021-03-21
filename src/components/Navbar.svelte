@@ -60,10 +60,10 @@
   </div>
 </nav>
 
-<script>
-import Sun from "#icons/Sun.svelte"
-import Moon from "#icons/Moon.svelte"
-import { theme } from "#stores/theme.ts"
+<script lang="ts">
+import Sun from "../icons/Sun.svelte"
+import Moon from "../icons/Moon.svelte"
+import { theme } from "../stores/theme"
 
 $: isDarkMode = $theme == "dark"
 
