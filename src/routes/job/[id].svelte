@@ -196,9 +196,11 @@ import { job } from "../../stores/jobs"
 
 export const load = async ({ page, fetch }) => {
   const req = await fetch(`/jobs.json?id=${page.params.id}`)
-  const res = await req.json()
 
-  job.set(res)
+  job.set(await req.json())
+
+  // needs to return something even if we don't use it
+  return { props: {} }
 }
 </script>
 

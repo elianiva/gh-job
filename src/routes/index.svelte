@@ -42,7 +42,7 @@
 
 <SEO title="Home" path="" />
 <Search />
-{#if $jobs.length < 1}
+{#if $jobs?.length < 1}
   <div class="loading">
     {#if $isFound}
       <Loading />
@@ -64,7 +64,7 @@
       />
     {/each}
   </div>
-  {#if $jobs.length >= 50}
+  {#if $jobs?.length >= 50}
     {#if isFetching}
       <p class="loading-text">Loading more data...</p>
     {:else}
@@ -79,9 +79,11 @@ import { jobs } from "../stores/jobs"
 export const prerender = true
 export const load = async ({ fetch }) => {
   const req = await fetch("/jobs.json?kind=all&page=1")
-  const res = await req.json()
 
-  jobs.set(res)
+  jobs.set(await req.json())
+
+  // needs to return something even if we don't use it
+  return { props: {} }
 }
 </script>
 
