@@ -76,6 +76,7 @@
 <script context="module" lang="ts">
 import { jobs } from "../stores/jobs"
 
+export const prerender = true
 export const load = async ({ fetch }) => {
   const req = await fetch("/jobs.json?kind=all&page=1")
   const res = await req.json()
