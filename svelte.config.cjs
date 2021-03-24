@@ -1,5 +1,5 @@
 const sveltePreprocess = require("svelte-preprocess");
-const vercel = require("./adapter-vercel");
+const vercel = require("@sveltejs/adapter-vercel");
 const pkg = require("./package.json");
 
 /** @type {import('@sveltejs/kit').Config} */
